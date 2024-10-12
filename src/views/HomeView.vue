@@ -52,7 +52,7 @@ import TheWelcome from '../components/TheWelcome.vue'
                 </div>
               </button>
               <div class="text">
-                New user? Create an account <a href="#">Register</a>
+                ¿Nuevo usuario? Crear una cuenta <a href="#">Registrarse</a>
               </div>
             </form>
           </div>
