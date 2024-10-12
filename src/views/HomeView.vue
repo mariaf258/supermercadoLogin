@@ -1,0 +1,379 @@
+<script setup lang="ts">
+import TheWelcome from '../components/TheWelcome.vue'
+</script>
+
+<template>
+  <div id="app">
+    <div class="page-wrapper">
+      <div class="">
+        <header>
+          <img src="../../public/img/Supermercado-title-color.png" alt="" />
+          <h1>Tu compra es <b>100% segura</b></h1>
+          <img src="../../public/img/security.png" alt="" />
+        </header>
+
+        <main class="main">
+          <div class="center">
+            <form action="">
+              <img src="../../public/img/user-color.png" alt="" />
+              <div class="title">INICIAR SESIÓN</div>
+              <span class="inputs">
+                <span class="inputf">
+                  <input
+                    type="email"
+                    class="input"
+                    placeholder="Correo Electrónico"
+                  />
+                  <span class="label">Correo Electrónico</span>
+                </span>
+                <span class="inputf">
+                  <input
+                    type="password"
+                    class="input"
+                    placeholder="Contraseña"
+                  />
+                  <span class="label">Contraseña</span>
+                  <span
+                    class="toggle-password"
+                    @click="showPassword = !showPassword"
+                  >
+                    <i
+                      :class="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"
+                    ></i>
+                  </span>
+                </span>
+              </span>
+              <button type="button" class="btn">
+                <span>INICIAR SESIÓN</span>
+                <div class="dots">
+                  <div class="dot" style="--delay: 0s"></div>
+                  <div class="dot" style="--delay: 0.25s"></div>
+                  <div class="dot" style="--delay: 0.5s"></div>
+                </div>
+              </button>
+              <div class="text">
+                New user? Create an account <a href="#">Register</a>
+              </div>
+            </form>
+          </div>
+        </main>
+
+        <footer>
+          <!-- <img src="../../public/img/logo-supermercado-xyz.png" alt="" /> -->
+        </footer>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+#app {
+  width: 100%;
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: #f96616;
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  padding: 20px;
+}
+
+header img {
+  /* width: 100%; */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f96616;
+}
+
+header h1 {
+  /* width: 100%; */
+  height: 30px;
+  color: white;
+  font-size: 18px;
+  margin-left: -80px;
+}
+
+header h1 b {
+  /* width: 100%; */
+  height: 30px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.main {
+  height: 100vh;
+  text-align: center;
+  margin-top: -10px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: -135px; */
+}
+
+.Ellipse {
+  max-width: 1000px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+  margin-top: -100px;
+}
+/*////////////////////////*/
+.center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: url(../images/login-back.png); */
+  background-size: cover;
+}
+
+form {
+  width: 400px;
+  height: 450px;
+  box-sizing: border-box;
+  border-radius: 5mm;
+  padding: 40px 30px;
+  backdrop-filter: blur(5px) saturate(160%);
+  -webkit-backdrop-filter: blur(5px) saturate(160%);
+  background: white;
+  border: 2px solid #f96616;
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  margin-left: 20px;
+}
+
+form img {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  width: 100%;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: black;
+  font-weight: bold;
+}
+
+.inputs {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputf {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  margin: 15px 0;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 45px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 0.55mm solid black;
+  background: none;
+  padding: 0 15px;
+  /* font-family: poppins; */
+  font-size: 15px;
+  color: black;
+  outline: none;
+}
+
+.input::placeholder {
+  color: black;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  /* font-family: poppins; */
+  opacity: 0;
+  z-index: -1;
+  transition: 0.25s ease-out;
+}
+
+.input:focus + .label {
+  top: -20px;
+  opacity: 1;
+  z-index: 1;
+}
+
+.input:focus::placeholder {
+  opacity: 0;
+}
+
+.input:not(:placeholder-shown) + .label {
+  top: -20px;
+  opacity: 1;
+  z-index: 1;
+}
+
+.icon {
+  color: white;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 18px;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  /* font-family: poppins; */
+  margin-bottom: 50px;
+  color: white;
+}
+
+.links label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.links a {
+  font-weight: 600;
+  color: white;
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  background: #f96616;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.btn span {
+  color: white;
+  /* font-family: poppins; */
+  font-size: 16px;
+}
+
+.text {
+  width: 100%;
+  /* font-family: poppins; */
+  font-size: 13px;
+  text-align: center;
+  color: black;
+}
+
+.text a {
+  color: black;
+  font-weight: 600;
+}
+
+.dots {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1px;
+  animation: load 0.5s ease-out infinite alternate var(--delay);
+}
+
+@keyframes load {
+  0% {
+    background: rgb(0, 0, 0);
+  }
+  50%,
+  100% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn .dots {
+  display: none;
+}
+
+.btn span {
+  display: block;
+}
+
+.btn.active .dots {
+  display: flex;
+}
+
+.btn.active span {
+  display: none;
+}
+
+.input.active {
+  animation: shake 0.25s ease-in-out 3;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0px;
+  }
+  25% {
+    margin-left: 5px;
+  }
+  75% {
+    margin-left: -5px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+/*////////////////////////*/
+/* footer {
+  width: 100%;
+  height: 50%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border-radius: 0px 0px 10px 10px;
+  background-color: #f96616;
+} */
+/* 
+footer img {
+  width: 170px;
+  height: 90px;
+  margin-left: 600px;
+  /* margin-top: 20px; */
+</style>
